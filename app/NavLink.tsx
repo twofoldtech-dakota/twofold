@@ -11,11 +11,12 @@ interface NavLinkProps {
 export default function NavLink({ href, children }: NavLinkProps) {
   let layoutSegments = useSelectedLayoutSegments();
   let segment = layoutSegments[0];
-  let active = href === `/${segment}`;
+  let active = false;
   if (href === "/" && segment === undefined) {
     active = true;
+  } else {
+    active = href === `/${segment}`;
   }
-  console.log(href, segment);
   return (
     <Link href={href} className={active ? "active" : ""}>
       {children}
