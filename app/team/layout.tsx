@@ -12,7 +12,7 @@ export default function Layout() {
       github: "https://github.com/twofoldtech-dakota",
       email: "dakota@twofold.tech",
       phone: "(816)277-7292",
-      image: ""
+      image: "",
     },
     {
       id: 2,
@@ -24,30 +24,44 @@ export default function Layout() {
       github: "https://github.com/twofoldtech-dillon",
       email: "dillon@twofold.tech",
       phone: "(816)277-7293",
-      image: ""
+      image: "",
     },
   ];
 
   return (
     <section>
-      <div className="page-intro">
-        <div className="page-intro-text center">
-          <h5>Bold & Ambitious</h5>
-          <h1>Our Team</h1>
+      <div className="flex justify-center">
+        <div className="text-center">
+          <h5 className="text-blue">Bold & Ambitious</h5>
+          <h1 className="mb-9 text-7xl">Our Team</h1>
+          <h3 className="text-gray-500"></h3>
         </div>
       </div>
-      <div className="team-members">
+
+      <div>
         {members.map((member) => (
-          <div className="member" key={member.id}>
+          <div className="p-6 mb-16 bg-black rounded-2xl" key={member.id}>
             <h3>{member.name}</h3>
             <h5>{member.title}</h5>
             <p>{member.description}</p>
-            <hr className="dull"/>
-            <div>{member.phone}</div>
-            <a href={`mailto:${member.email}?subject="Twofold.tech requested contact"`}>{member.email}</a>
-            <a href={member.linkedin}>linkedin</a>
-            <a href={member.github}>github</a>
-            <hr />
+            <hr className="p-2 border-t-0 border-b border-gray-600 border-dotted" />
+
+            <div className="flex flex-row justify-between p-4 text-sm">
+              <div className="flex flex-col self-start">
+                <div>{member.phone}</div>
+                <a
+                  href={`mailto:${member.email}?subject="Twofold.tech requested contact"`}
+                >
+                  {member.email}
+                </a>
+              </div>
+              <div className="flex flex-col self-end">
+                <a href={member.linkedin}>linkedin</a>
+                <a href={member.github}>github</a>
+              </div>
+            </div>
+
+            <hr className="border-t-0 border-b border-gray-600 border-dotted" />
           </div>
         ))}
       </div>
